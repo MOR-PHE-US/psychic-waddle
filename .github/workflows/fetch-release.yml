@@ -1,0 +1,51 @@
+name: Fetch and Bundle Releases
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # 每周日 UTC 00:00
+  workflow_dispatch:
+
+jobs:
+  update-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl zip
+
+      - name: Make scripts executable
+        run: chmod +x scripts/fetch_and_update.sh
+
+      - name: Update README table and download releases
+        run: ./scripts/fetch_and_update.sh
+
+      - name: Package all downloaded releases
+        run: |
+          mkdir -p releases
+          # 确保 releases/ 下的文件存在，再打包
+          if [ "$(ls -A releases 2>/dev/null)" ]; then
+            ZIP_NAME="releases_$(date +%Y%m%d).zip"
+            zip -r $ZIP_NAME releases/
+            echo "Created $ZIP_NAME"
+          else
+            echo "No release assets to package."
+          fi
+
+      - name: Upload zip artifact
+        if: success() && steps.package.outcome != 'skipped'
+        uses: actions/upload-artifact@v3
+        with:
+          name: releases
+          path: releases_*.zip
+
+      - name: Commit updated README
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update release table in README"
+          branch: main
+          file_pattern: README.md
