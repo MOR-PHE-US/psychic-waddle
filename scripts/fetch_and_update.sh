@@ -15,7 +15,6 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
   # 跳过空行或注释
   [[ -z "$LINE" || "$LINE" =~ ^# ]] && continue
 
-  # 分割仓库和关键字
   REPO=$(echo "$LINE" | awk '{print $1}')
   KEYWORD=$(echo "$LINE" | awk '{print $2}')
 
@@ -23,9 +22,20 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
 
   API_URL="https://api.github.com/repos/$REPO/releases/latest"
   RESPONSE=$(curl -s $API_URL)
-  VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // "N/A"')
-  PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // "N/A"')
-  ASSETS=$(echo "$RESPONSE" | jq -r '.assets[] | "\(.name)|\(.browser_download_url)"')
+  VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // empty')
+  PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // empty')
+
+  # 如果 release 不存在，使用 tags fallback
+  if [ -z "$VERSION" ]; then
+    echo "No release found, fallback to tags..."
+    TAGS_RESPONSE=$(curl -s "https://api.github.com/repos/$REPO/tags")
+    VERSION=$(echo "$TAGS_RESPONSE" | jq -r '.[0].name // "N/A"')
+    PUBLISHED_AT="N/A"
+    ASSETS=""
+  else
+    # 只有 release 存在时才处理 assets
+    ASSETS=$(echo "$RESPONSE" | jq -r '.assets[]? | "\(.name)|\(.browser_download_url)"')
+  fi
 
   PROJECT_NAME=$(basename "$REPO")
   RELEASE_PAGE="https://github.com/$REPO/releases/latest"
@@ -37,7 +47,6 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
       ASSET_NAME=$(echo "$ASSET_LINE" | cut -d"|" -f1)
       ASSET_URL=$(echo "$ASSET_LINE" | cut -d"|" -f2)
 
-      # 判断是否匹配关键字
       if [ -z "$KEYWORD" ] || [[ "$ASSET_NAME" == *"$KEYWORD"* ]]; then
         FILENAME="releases/$PROJECT_NAME-$VERSION-$ASSET_NAME"
         echo "Downloading $ASSET_NAME..."
@@ -47,7 +56,6 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
     done <<< "$ASSETS"
   fi
 
-  # 如果没有匹配的资产，显示 Release 页面
   if [ -z "$DOWNLOAD_LINKS" ]; then
     DOWNLOAD_LINKS="[Release 页面]($RELEASE_PAGE)"
   fi
@@ -56,7 +64,6 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
   INDEX=$((INDEX + 1))
 done < repos.txt
 
-# 替换 README.md 中的表格部分
 awk -v table="$(cat $TMP_TABLE)" '
 /<!-- RELEASE_TABLE_START -->/ {print; print table; skip=1; next}
 /<!-- RELEASE_TABLE_END -->/ {skip=0} 
