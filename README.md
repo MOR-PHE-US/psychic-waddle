@@ -21,4 +21,8 @@
 其它下载
 
 <!-- OTHER_TABLE_START -->
+| 序号 | 名称 | 版本 | 下载 |
+| --- | --- | --- | --- |
+| 1 | Android-SDK-Platform-Tools | 36.0.0 | [下载地址](https://dl.google.com/android/repository/platform-tools-latest-windows.zip?hl=zh-cn) |
+| 2 | Google-USB-Driver | 13 | [下载地址](https://dl.google.com/android/repository/usb_driver_r13-windows.zip?hl=zh-cn) |
 <!-- OTHER_TABLE_END -->
