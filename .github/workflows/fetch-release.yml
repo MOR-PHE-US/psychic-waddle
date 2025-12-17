@@ -38,7 +38,7 @@ jobs:
 
       - name: Upload zip artifact
         if: success() && steps.package.outcome != 'skipped'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: releases
           path: releases_*.zip
@@ -47,5 +47,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Update release table in README"
-          branch: main
+          分支: main
           file_pattern: README.md
