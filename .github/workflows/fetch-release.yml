@@ -31,19 +31,20 @@ jobs:
         
       - name: Package releases
         run: |
-          ZIP_NAME="releases_$(date +%Y%m%d).zip"
+          TODAY=$(date +%Y%m%d)
+          ZIP_NAME="releases_$TODAY.zip"
+      
           if [ -d "releases" ] && [ "$(ls -A releases)" ]; then
-            cd releases
-            zip -r "../$ZIP_NAME" ./*
-            cd -
+            zip -j "$ZIP_NAME" releases/*
             echo "Created $ZIP_NAME"
           else
             echo "No files in releases to package."
           fi
-
+          
       - name: Upload zip artifact
         uses: actions/upload-artifact@v4
         with:
+          name: releases_${{ github.run_id }}   # artifact 名称可以加 run_id
           path: releases_*.zip
       
       - name: Commit updated README
