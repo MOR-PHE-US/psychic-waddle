@@ -65,7 +65,9 @@ awk -v table="$(cat $TMP_TABLE)" '
 # 打包 releases 目录下所有文件
 if [ "$(ls -A releases 2>/dev/null)" ]; then
   ZIP_NAME="filtered_releases_$(date +%Y%m%d).zip"
-  zip -r "$ZIP_NAME" releases/
+  cd releases
+  zip -r "../$ZIP_NAME" ./*
+  cd ..
   echo "Created $ZIP_NAME"
 else
   echo "No matching assets to package."
