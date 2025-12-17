@@ -18,7 +18,7 @@
 | 11 | TS-Enhancer-Extreme | 0.8.2.1 | 2025-09-30T11:58:27Z | [TS-Enhancer-Extreme-0.8.2.1.zip](https://github.com/XtrLumen/TS-Enhancer-Extreme/archive/refs/tags/0.8.2.1.zip) |
 <!-- RELEASE_TABLE_END -->
 
-自动拉取其它下载
+其它下载
 
 <!-- OTHER_TABLE_START -->
 <!-- OTHER_TABLE_END -->
