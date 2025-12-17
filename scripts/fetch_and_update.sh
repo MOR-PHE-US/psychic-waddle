@@ -63,27 +63,18 @@ awk -v table="$(cat $TMP_TABLE)" '
 ' "$README_FILE" > "$README_FILE.tmp" && mv "$README_FILE.tmp" "$README_FILE"
 
 # 打包 releases 目录下的文件
-if [ "$(ls -A releases 2>/dev/null)" ]; then
-  ZIP_NAME="releases_$(date +%Y%m%d).zip"
+# if [ "$(ls -A releases 2>/dev/null)" ]; then
+#   ZIP_NAME="releases_$(date +%Y%m%d).zip"
 
-  TMP_DIR=$(mktemp -d)
+#   # 直接在 releases 目录下打包
+#   cd releases
+#   zip -r "../$ZIP_NAME" ./*
+#   cd -
 
-  # 拷贝文件
-  cp -r releases/* "$TMP_DIR"/
-
-  # 在临时目录打包
-  cd "$TMP_DIR"
-  zip -r "$ZIP_NAME" ./*
-  # 移回工作目录
-  mv "$ZIP_NAME" "$GITHUB_WORKSPACE"/
-  cd -
-
-  rm -rf "$TMP_DIR"
-
-  echo "Created $ZIP_NAME"
-else
-  echo "No matching assets to package."
-fi
+#   echo "Created $ZIP_NAME"
+# else
+#   echo "No matching assets to package."
+# fi
 
 
 echo "README.md table updated and releases packaged."
