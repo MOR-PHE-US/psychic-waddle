@@ -23,9 +23,19 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
 
   API_URL="https://api.github.com/repos/$REPO/releases/latest"
   RESPONSE=$(curl -s $API_URL)
-  VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // "N/A"')
-  PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // "N/A"')
+
+  VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // empty')
+  PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // empty')
   ASSETS=$(echo "$RESPONSE" | jq -r '.assets[] | "\(.name)|\(.browser_download_url)"')
+
+  # 如果 release 不存在，则尝试用 tag
+  if [ -z "$VERSION" ]; then
+    echo "No release found, fetching latest tag..."
+    TAG_RESPONSE=$(curl -s "https://api.github.com/repos/$REPO/tags")
+    VERSION=$(echo "$TAG_RESPONSE" | jq -r '.[0].name // "N/A"')
+    PUBLISHED_AT="N/A"
+    ASSETS=""
+  fi
 
   PROJECT_NAME=$(basename "$REPO")
   RELEASE_PAGE="https://github.com/$REPO/releases/latest"
