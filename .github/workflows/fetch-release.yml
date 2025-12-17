@@ -47,5 +47,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Update release table in README"
-          分支: main
+          branch: main
           file_pattern: README.md
