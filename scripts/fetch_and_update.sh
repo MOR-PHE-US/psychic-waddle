@@ -65,16 +65,21 @@ awk -v table="$(cat $TMP_TABLE)" '
 # 打包 releases 目录下的文件
 if [ "$(ls -A releases 2>/dev/null)" ]; then
   ZIP_NAME="releases_$(date +%Y%m%d).zip"
-  # 创建临时目录
+
   TMP_DIR=$(mktemp -d)
-  # 拷贝 releases 下所有文件到临时目录
+
+  # 拷贝文件
   cp -r releases/* "$TMP_DIR"/
+
   # 在临时目录打包
   cd "$TMP_DIR"
-  zip -r "../../$ZIP_NAME" ./*
+  zip -r "$ZIP_NAME" ./*
+  # 移回工作目录
+  mv "$ZIP_NAME" "$GITHUB_WORKSPACE"/
   cd -
-  # 删除临时目录
+
   rm -rf "$TMP_DIR"
+
   echo "Created $ZIP_NAME"
 else
   echo "No matching assets to package."
