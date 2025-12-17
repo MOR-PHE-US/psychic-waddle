@@ -6,8 +6,8 @@ TMP_TABLE="release_table.tmp.md"
 
 mkdir -p releases
 
-echo "| 序号 | 项目名 | 版本 | 下载 |" > $TMP_TABLE
-echo "| --- | --- | --- | --- |" >> $TMP_TABLE
+echo "| 序号 | 项目 | 版本 | 更新 | 下载 |" > $TMP_TABLE
+echo "| --- | --- | --- | --- | --- |" >> $TMP_TABLE
 
 INDEX=1
 
@@ -24,6 +24,7 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
   API_URL="https://api.github.com/repos/$REPO/releases/latest"
   RESPONSE=$(curl -s $API_URL)
   VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // "N/A"')
+  PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // "N/A"')
   ASSETS=$(echo "$RESPONSE" | jq -r '.assets[] | "\(.name)|\(.browser_download_url)"')
 
   PROJECT_NAME=$(basename "$REPO")
@@ -51,7 +52,7 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
     DOWNLOAD_LINKS="[Release 页面]($RELEASE_PAGE)"
   fi
 
-  echo "| $INDEX | $PROJECT_NAME | $VERSION | $DOWNLOAD_LINKS |" >> $TMP_TABLE
+  echo "| $INDEX | $PROJECT_NAME | $VERSION | $PUBLISHED_AT | $DOWNLOAD_LINKS |" >> $TMP_TABLE
   INDEX=$((INDEX + 1))
 done < repos.txt
 

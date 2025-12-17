@@ -1,6 +1,9 @@
 topjohnwu/Magisk Magisk
-tiann/KernelSU KernelSU
-Dr-TSNG/ZygiskNext Zygisk-Next
-LSPosed/LSPosed.github.io Shamiko
+tiann/KernelSU release.apk 
+Dr-TSNG/ZygiskNext release.zip
+LSPosed/LSPosed.github.io release.zip
 KOWX712/PlayIntegrityFix PlayIntegrityFix
-5ec1cff/TrickyStore Tricky-Store
+5ec1cff/TrickyStore release.zip
+SukiSU-Ultra/SukiSU-Ultra release.apk
+RikkaApps/Shizuku release.apk
+PerformanC/ReZygisk release.zip
