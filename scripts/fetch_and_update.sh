@@ -62,9 +62,9 @@ awk -v table="$(cat $TMP_TABLE)" '
 !skip {print}
 ' "$README_FILE" > "$README_FILE.tmp" && mv "$README_FILE.tmp" "$README_FILE"
 
-# 打包 releases 目录下所有文件
+# 打包 releases 目录下的文件
 if [ "$(ls -A releases 2>/dev/null)" ]; then
-  ZIP_NAME="filtered_releases_$(date +%Y%m%d).zip"
+  ZIP_NAME="releases_$(date +%Y%m%d).zip"
   cd releases
   zip -r "../$ZIP_NAME" ./*
   cd ..
