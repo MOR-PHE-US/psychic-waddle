@@ -1,2 +1,6 @@
-LSPosed/LSPosed.github.io Shamiko
 topjohnwu/Magisk Magisk
+tiann/KernelSU KernelSU
+Dr-TSNG/ZygiskNext Zygisk-Next
+LSPosed/LSPosed.github.io Shamiko
+KOWX712/PlayIntegrityFix PlayIntegrityFix
+5ec1cff/TrickyStore Tricky-Store
