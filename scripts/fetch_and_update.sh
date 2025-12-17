@@ -12,7 +12,6 @@ echo "| --- | --- | --- | --- | --- |" >> $TMP_TABLE
 INDEX=1
 
 while IFS= read -r LINE || [ -n "$LINE" ]; do
-  # 跳过空行或注释
   [[ -z "$LINE" || "$LINE" =~ ^# ]] && continue
 
   REPO=$(echo "$LINE" | awk '{print $1}')
@@ -25,39 +24,41 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
   VERSION=$(echo "$RESPONSE" | jq -r '.tag_name // empty')
   PUBLISHED_AT=$(echo "$RESPONSE" | jq -r '.published_at // empty')
 
-  # 如果 release 不存在，使用 tags fallback
+  PROJECT_NAME=$(basename "$REPO")
+  DOWNLOAD_LINKS=""
+  RELEASE_PAGE="https://github.com/$REPO/releases/latest"
+
   if [ -z "$VERSION" ]; then
     echo "No release found, fallback to tags..."
     TAGS_RESPONSE=$(curl -s "https://api.github.com/repos/$REPO/tags")
     VERSION=$(echo "$TAGS_RESPONSE" | jq -r '.[0].name // "N/A"')
-    PUBLISHED_AT="N/A"
+
+    TAG_COMMIT_SHA=$(echo "$TAGS_RESPONSE" | jq -r '.[0].commit.sha')
+    COMMIT_INFO=$(curl -s "https://api.github.com/repos/$REPO/commits/$TAG_COMMIT_SHA")
+    PUBLISHED_AT=$(echo "$COMMIT_INFO" | jq -r '.commit.committer.date // "N/A"')
+
+    DOWNLOAD_LINKS="[Tag 下载](https://github.com/$REPO/archive/refs/tags/$VERSION.zip)"
     ASSETS=""
   else
-    # 只有 release 存在时才处理 assets
     ASSETS=$(echo "$RESPONSE" | jq -r '.assets[]? | "\(.name)|\(.browser_download_url)"')
-  fi
 
-  PROJECT_NAME=$(basename "$REPO")
-  RELEASE_PAGE="https://github.com/$REPO/releases/latest"
+    if [ -n "$ASSETS" ]; then
+      while IFS= read -r ASSET_LINE; do
+        ASSET_NAME=$(echo "$ASSET_LINE" | cut -d"|" -f1)
+        ASSET_URL=$(echo "$ASSET_LINE" | cut -d"|" -f2)
 
-  DOWNLOAD_LINKS=""
+        if [ -z "$KEYWORD" ] || [[ "$ASSET_NAME" == *"$KEYWORD"* ]]; then
+          FILENAME="releases/$PROJECT_NAME-$VERSION-$ASSET_NAME"
+          echo "Downloading $ASSET_NAME..."
+          curl -L -o "$FILENAME" "$ASSET_URL"
+          DOWNLOAD_LINKS+="[ $ASSET_NAME ]($ASSET_URL)  "
+        fi
+      done <<< "$ASSETS"
+    fi
 
-  if [ -n "$ASSETS" ]; then
-    while IFS= read -r ASSET_LINE; do
-      ASSET_NAME=$(echo "$ASSET_LINE" | cut -d"|" -f1)
-      ASSET_URL=$(echo "$ASSET_LINE" | cut -d"|" -f2)
-
-      if [ -z "$KEYWORD" ] || [[ "$ASSET_NAME" == *"$KEYWORD"* ]]; then
-        FILENAME="releases/$PROJECT_NAME-$VERSION-$ASSET_NAME"
-        echo "Downloading $ASSET_NAME..."
-        curl -L -o "$FILENAME" "$ASSET_URL"
-        DOWNLOAD_LINKS+="[ $ASSET_NAME ]($ASSET_URL)  "
-      fi
-    done <<< "$ASSETS"
-  fi
-
-  if [ -z "$DOWNLOAD_LINKS" ]; then
-    DOWNLOAD_LINKS="[Release 页面]($RELEASE_PAGE)"
+    if [ -z "$DOWNLOAD_LINKS" ]; then
+      DOWNLOAD_LINKS="[Release]($RELEASE_PAGE)"
+    fi
   fi
 
   echo "| $INDEX | $PROJECT_NAME | $VERSION | $PUBLISHED_AT | $DOWNLOAD_LINKS |" >> $TMP_TABLE
