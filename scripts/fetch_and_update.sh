@@ -62,19 +62,4 @@ awk -v table="$(cat $TMP_TABLE)" '
 !skip {print}
 ' "$README_FILE" > "$README_FILE.tmp" && mv "$README_FILE.tmp" "$README_FILE"
 
-# 打包 releases 目录下的文件
-# if [ "$(ls -A releases 2>/dev/null)" ]; then
-#   ZIP_NAME="releases_$(date +%Y%m%d).zip"
-
-#   # 直接在 releases 目录下打包
-#   cd releases
-#   zip -r "../$ZIP_NAME" ./*
-#   cd -
-
-#   echo "Created $ZIP_NAME"
-# else
-#   echo "No matching assets to package."
-# fi
-
-
 echo "README.md table updated and releases packaged."
