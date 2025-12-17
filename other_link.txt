@@ -1,0 +1,2 @@
+Android-SDK-Platform-Tools 36.0.0 https://dl.google.com/android/repository/platform-tools-latest-windows.zip?hl=zh-cn
+Google-USB-Driver 13 https://dl.google.com/android/repository/usb_driver_r13-windows.zip?hl=zh-cn

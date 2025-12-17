@@ -1,6 +1,6 @@
 # Auto Release
 
-本项目每周自动拉取以下仓库最新 release。
+自动拉取以下仓库最新 release。
 
 <!-- RELEASE_TABLE_START -->
 | 序号 | 项目 | 版本 | 更新 | 下载 |
@@ -17,3 +17,8 @@
 | 10 | ReZygisk | v1.0.0-rc.4 | 2025-10-22T00:00:55Z | [ ReZygisk-v1.0.0-rc.4-release.zip ](releases/ReZygisk-v1.0.0-rc.4-ReZygisk-v1.0.0-rc.4-release.zip)   |
 | 11 | TS-Enhancer-Extreme | 0.8.2.1 | 2025-09-30T11:58:27Z | [TS-Enhancer-Extreme-0.8.2.1.zip](releases/TS-Enhancer-Extreme-0.8.2.1.zip) |
 <!-- RELEASE_TABLE_END -->
+
+自动拉取其它下载
+
+<!-- OTHER_TABLE_START -->
+<!-- OTHER_TABLE_END -->

@@ -3,9 +3,14 @@ set -e
 
 README_FILE="README.md"
 TMP_TABLE="release_table.tmp.md"
+TMP_OTHER_TABLE="other_table.tmp.md"
 
 mkdir -p releases
 
+# -------------------------
+# 第一张表：release/tag 信息
+# -------------------------
+REPOS_FILE="repos.txt"
 echo "| 序号 | 项目 | 版本 | 更新 | 下载 |" > $TMP_TABLE
 echo "| --- | --- | --- | --- | --- |" >> $TMP_TABLE
 
@@ -67,12 +72,39 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
 
   echo "| $INDEX | $PROJECT_NAME | $VERSION | $PUBLISHED_AT | $DOWNLOAD_LINKS |" >> $TMP_TABLE
   INDEX=$((INDEX + 1))
-done < repos.txt
+done < "$REPOS_FILE"
 
-awk -v table="$(cat $TMP_TABLE)" '
-/<!-- RELEASE_TABLE_START -->/ {print; print table; skip=1; next}
+# -------------------------
+# 第二张表：来自另一个文件的下载链接
+# 文件格式：项目名 版本 链接
+# -------------------------
+OTHER_LINK="other_link.txt"
+echo "| 序号 | 名称 | 版本 | 下载 |" > $TMP_OTHER_TABLE
+echo "| --- | --- | --- | --- |" >> $TMP_OTHER_TABLE
+
+INDEX=1
+while IFS= read -r LINE || [ -n "$LINE" ]; do
+  [[ -z "$LINE" || "$LINE" =~ ^# ]] && continue
+
+  NAME=$(echo "$LINE" | awk '{print $1}')
+  VERSION=$(echo "$LINE" | awk '{print $2}')
+  LINK=$(echo "$LINE" | awk '{print $3}')
+
+  DOWNLOAD="[下载地址]($LINK)"
+  echo "| $INDEX | $NAME | $VERSION | $DOWNLOAD |" >> $TMP_OTHER_TABLE
+  INDEX=$((INDEX + 1))
+done < "$OTHER_LINK"
+
+# -------------------------
+# 替换 README.md 中的表格部分
+# 假设两个表格都有各自注释标记
+# -------------------------
+awk -v table1="$(cat $TMP_TABLE)" -v table2="$(cat $TMP_OTHER_TABLE)" '
+/<!-- RELEASE_TABLE_START -->/ {print; print table1; skip=1; next}
 /<!-- RELEASE_TABLE_END -->/ {skip=0} 
-!skip {print}
+/<!-- OTHER_TABLE_START -->/ {print; print table2; skip2=1; next}
+/<!-- OTHER_TABLE_END -->/ {skip2=0} 
+!skip && !skip2 {print}
 ' "$README_FILE" > "$README_FILE.tmp" && mv "$README_FILE.tmp" "$README_FILE"
 
-echo "README.md table updated and releases packaged."
+echo "README.md updated with release and other downloads tables."
