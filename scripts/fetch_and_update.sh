@@ -37,8 +37,13 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
     COMMIT_INFO=$(curl -s "https://api.github.com/repos/$REPO/commits/$TAG_COMMIT_SHA")
     PUBLISHED_AT=$(echo "$COMMIT_INFO" | jq -r '.commit.committer.date // "N/A"')
 
-    DOWNLOAD_LINKS="[Tag 下载](https://github.com/$REPO/archive/refs/tags/$VERSION.zip)"
-    ASSETS=""
+    # 下载 tag zip，并保存为 releases/PROJECT-VERSION.zip
+    FILE_NAME="releases/$PROJECT_NAME-$VERSION.zip"
+    TAG_ZIP_URL="https://github.com/$REPO/archive/refs/tags/$VERSION.zip"
+    echo "Downloading tag $VERSION..."
+    curl -L -o "$FILE_NAME" "$TAG_ZIP_URL"
+
+    DOWNLOAD_LINKS="[$PROJECT_NAME-$VERSION.zip]($FILE_NAME)"
   else
     ASSETS=$(echo "$RESPONSE" | jq -r '.assets[]? | "\(.name)|\(.browser_download_url)"')
 
@@ -51,7 +56,7 @@ while IFS= read -r LINE || [ -n "$LINE" ]; do
           FILENAME="releases/$PROJECT_NAME-$VERSION-$ASSET_NAME"
           echo "Downloading $ASSET_NAME..."
           curl -L -o "$FILENAME" "$ASSET_URL"
-          DOWNLOAD_LINKS+="[ $ASSET_NAME ]($ASSET_URL)  "
+          DOWNLOAD_LINKS+="[ $ASSET_NAME ]($FILENAME)  "
         fi
       done <<< "$ASSETS"
     fi
