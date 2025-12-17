@@ -44,7 +44,7 @@ jobs:
       - name: Upload zip artifact
         uses: actions/upload-artifact@v4
         with:
-          name: releases_${{ github.run_id }}   # artifact 名称可以加 run_id
+          name: releases_${{ github.run_id }}
           path: releases_*.zip
       
       - name: Commit updated README

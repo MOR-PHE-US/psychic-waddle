@@ -97,7 +97,6 @@ done < "$OTHER_LINK"
 
 # -------------------------
 # 替换 README.md 中的表格部分
-# 假设两个表格都有各自注释标记
 # -------------------------
 awk -v table1="$(cat $TMP_TABLE)" -v table2="$(cat $TMP_OTHER_TABLE)" '
 /<!-- RELEASE_TABLE_START -->/ {print; print table1; skip=1; next}
