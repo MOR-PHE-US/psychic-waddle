@@ -28,12 +28,23 @@ jobs:
 
       - name: Update README table and download releases
         run: ./scripts/fetch_and_update.sh
+        
+      - name: Package releases
+        run: |
+          ZIP_NAME="releases_$(date +%Y%m%d).zip"
+          if [ -d "releases" ] && [ "$(ls -A releases)" ]; then
+            cd releases
+            zip -r "../$ZIP_NAME" ./*
+            cd -
+            echo "Created $ZIP_NAME"
+          else
+            echo "No files in releases to package."
+          fi
 
       - name: Upload zip artifact
-        if: success() && steps.package.outcome != 'skipped'
         uses: actions/upload-artifact@v4
         with:
-          name: releases
+          name: releases_$(date +%Y%m%d)
           path: releases_*.zip
       
       - name: Commit updated README
