@@ -29,19 +29,6 @@ jobs:
       - name: Update README table and download releases
         run: ./scripts/fetch_and_update.sh
 
-      - name: Package all downloaded releases
-        run: |
-          mkdir -p releases
-          if [ "$(ls -A releases 2>/dev/null)" ]; then
-            ZIP_NAME="releases_$(date +%Y%m%d).zip"
-            cd releases
-            zip -r "../$ZIP_NAME" ./*
-            cd ..
-            echo "Created $ZIP_NAME"
-          else
-            echo "No release assets to package."
-          fi
-
       - name: Upload zip artifact
         if: success() && steps.package.outcome != 'skipped'
         uses: actions/upload-artifact@v4
