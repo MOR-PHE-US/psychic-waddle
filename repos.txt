@@ -10,3 +10,4 @@ KOWX712/PlayIntegrityFix PlayIntegrityFix
 5ec1cff/TrickyStore release.zip
 PerformanC/ReZygisk release.zip
 XtrLumen/TS-Enhancer-Extreme release.zip
+KOWX712/Tricky-Addon-Update-Target-List .zip
