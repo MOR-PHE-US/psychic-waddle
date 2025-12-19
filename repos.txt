@@ -8,6 +8,5 @@ Dr-TSNG/ZygiskNext release.zip
 LSPosed/LSPosed.github.io release.zip
 KOWX712/PlayIntegrityFix PlayIntegrityFix
 5ec1cff/TrickyStore release.zip
-PerformanC/ReZygisk release.zip
-XtrLumen/TS-Enhancer-Extreme release.zip
 KOWX712/Tricky-Addon-Update-Target-List .zip
+PerformanC/ReZygisk release.zip
