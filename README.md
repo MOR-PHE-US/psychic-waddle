@@ -17,6 +17,7 @@
 | 10 | TrickyStore | 1.4.1 | 2025-11-02T09:56:37Z | [ Tricky-Store-v1.4.1-245-72b2e84-release.zip ](https://github.com/5ec1cff/TrickyStore/releases/download/1.4.1/Tricky-Store-v1.4.1-245-72b2e84-release.zip)   |
 | 11 | ReZygisk | v1.0.0-rc.4 | 2025-10-22T00:00:55Z | [ ReZygisk-v1.0.0-rc.4-release.zip ](https://github.com/PerformanC/ReZygisk/releases/download/v1.0.0-rc.4/ReZygisk-v1.0.0-rc.4-release.zip)   |
 | 12 | TS-Enhancer-Extreme | 0.8.2.1 | 2025-09-30T11:58:27Z | [TS-Enhancer-Extreme-0.8.2.1.zip](https://github.com/XtrLumen/TS-Enhancer-Extreme/archive/refs/tags/0.8.2.1.zip) |
+| 13 | Tricky-Addon-Update-Target-List | v4.3 | 2025-11-02T14:21:58Z | [ TrickyAddonModule-v4.3.zip ](https://github.com/KOWX712/Tricky-Addon-Update-Target-List/releases/download/v4.3/TrickyAddonModule-v4.3.zip)   |
 <!-- RELEASE_TABLE_END -->
 
 其它下载
