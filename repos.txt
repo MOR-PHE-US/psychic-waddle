@@ -3,6 +3,7 @@ vvb2060/KeyAttestation KeyAttestation
 SukiSU-Ultra/SukiSU-Ultra release.apk
 RikkaApps/Shizuku release.apk
 tiann/KernelSU release.apk
+localsend/localsend arm64v8.apk
 Dr-TSNG/ZygiskNext release.zip
 LSPosed/LSPosed.github.io release.zip
 KOWX712/PlayIntegrityFix PlayIntegrityFix
