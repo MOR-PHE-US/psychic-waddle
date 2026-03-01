@@ -5,7 +5,7 @@
 <!-- RELEASE_TABLE_START -->
 | 序号 | 项目 | 版本 | 更新 | 下载 |
 | --- | --- | --- | --- | --- |
-| 1 | Magisk | v30.6 | 2025-12-01T23:57:55Z | [ Magisk-v30.6.apk ](https://github.com/topjohnwu/Magisk/releases/download/v30.6/Magisk-v30.6.apk)   |
+| 1 | Magisk | v30.7 | 2026-02-23T08:07:01Z | [ Magisk-v30.7.apk ](https://github.com/topjohnwu/Magisk/releases/download/v30.7/Magisk-v30.7.apk)   |
 | 2 | KeyAttestation | v1.8.4 | 2025-01-16T15:15:30Z | [ KeyAttestation-v1.8.4.apk ](https://github.com/vvb2060/KeyAttestation/releases/download/v1.8.4/KeyAttestation-v1.8.4.apk)   |
 | 3 | SukiSU-Ultra | v4.1.1 | 2026-01-30T07:47:28Z | [ SukiSU_v4.1.1_40496-release.apk ](https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases/download/v4.1.1/SukiSU_v4.1.1_40496-release.apk)   |
 | 4 | Shizuku | v13.6.0 | 2025-05-25T13:19:47Z | [ shizuku-v13.6.0.r1086.2650830c-release.apk ](https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk)   |
