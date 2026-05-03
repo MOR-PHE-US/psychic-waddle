@@ -16,7 +16,7 @@
 | 9 | PlayIntegrityFix | v4.5-inject-s | 2026-03-28T05:32:00Z | [ PlayIntegrityFix_v4.5-inject-s.zip ](https://github.com/KOWX712/PlayIntegrityFix/releases/download/v4.5-inject-s/PlayIntegrityFix_v4.5-inject-s.zip)   |
 | 10 | TrickyStore | 1.4.1 | 2025-11-02T09:56:37Z | [ Tricky-Store-v1.4.1-245-72b2e84-release.zip ](https://github.com/5ec1cff/TrickyStore/releases/download/1.4.1/Tricky-Store-v1.4.1-245-72b2e84-release.zip)   |
 | 11 | Tricky-Addon-Update-Target-List | v4.3 | 2025-11-02T14:21:58Z | [ TrickyAddonModule-v4.3.zip ](https://github.com/KOWX712/Tricky-Addon-Update-Target-List/releases/download/v4.3/TrickyAddonModule-v4.3.zip)   |
-| 12 | ReZygisk | v1.0.0-rc.7 | 2026-04-02T01:42:20Z | [ ReZygisk-v1.0.0-rc.7-release.zip ](https://github.com/PerformanC/ReZygisk/releases/download/v1.0.0-rc.7/ReZygisk-v1.0.0-rc.7-release.zip)   |
+| 12 | ReZygisk | v1.0.0-rc.9 | 2026-05-03T03:37:32Z | [ ReZygisk-v1.0.0-rc.9-release.zip ](https://github.com/PerformanC/ReZygisk/releases/download/v1.0.0-rc.9/ReZygisk-v1.0.0-rc.9-release.zip)   |
 <!-- RELEASE_TABLE_END -->
 
 其它下载
