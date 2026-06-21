@@ -11,7 +11,7 @@
 | 4 | Shizuku | v13.6.0 | 2025-05-25T13:19:47Z | [ shizuku-v13.6.0.r1086.2650830c-release.apk ](https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk)   |
 | 5 | KernelSU | v3.2.4 | 2026-04-06T03:49:53Z | [ KernelSU_v3.2.4_32457-release.apk ](https://github.com/tiann/KernelSU/releases/download/v3.2.4/KernelSU_v3.2.4_32457-release.apk)   |
 | 6 | localsend | v1.17.0 | 2025-02-20T01:23:55Z | [ LocalSend-1.17.0-android-arm64v8.apk ](https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-android-arm64v8.apk)   |
-| 7 | ZygiskNext | v1.3.4 | 2026-04-08T08:11:14Z | [ Zygisk-Next-1.3.4-746-d1b76b3-release.zip ](https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.3.4/Zygisk-Next-1.3.4-746-d1b76b3-release.zip)   |
+| 7 | ZygiskNext | v1.4.0 | 2026-06-18T12:51:17Z | [ Zygisk-Next-1.4.0-768-37ee2d5-release.zip ](https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.4.0/Zygisk-Next-1.4.0-768-37ee2d5-release.zip)   |
 | 8 | LSPosed.github.io | shamiko-414 | 2025-06-18T11:37:10Z | [ Shamiko-v1.2.5-414-release.zip ](https://github.com/LSPosed/LSPosed.github.io/releases/download/shamiko-414/Shamiko-v1.2.5-414-release.zip)   |
 | 9 | PlayIntegrityFix | v4.5-inject-s | 2026-03-28T05:32:00Z | [ PlayIntegrityFix_v4.5-inject-s.zip ](https://github.com/KOWX712/PlayIntegrityFix/releases/download/v4.5-inject-s/PlayIntegrityFix_v4.5-inject-s.zip)   |
 | 10 | TrickyStore | 1.4.1 | 2025-11-02T09:56:37Z | [ Tricky-Store-v1.4.1-245-72b2e84-release.zip ](https://github.com/5ec1cff/TrickyStore/releases/download/1.4.1/Tricky-Store-v1.4.1-245-72b2e84-release.zip)   |
