@@ -9,9 +9,9 @@
 | 2 | KeyAttestation | v1.8.4 | 2025-01-16T15:15:30Z | [ KeyAttestation-v1.8.4.apk ](https://github.com/vvb2060/KeyAttestation/releases/download/v1.8.4/KeyAttestation-v1.8.4.apk)   |
 | 3 | SukiSU-Ultra | v4.1.3 | 2026-06-02T07:33:28Z | [ SukiSU_v4.1.3_40796-release.apk ](https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases/download/v4.1.3/SukiSU_v4.1.3_40796-release.apk)   |
 | 4 | Shizuku | v13.6.0 | 2025-05-25T13:19:47Z | [ shizuku-v13.6.0.r1086.2650830c-release.apk ](https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk)   |
-| 5 | KernelSU | v3.2.5 | 2026-06-23T14:17:14Z | [ KernelSU_v3.2.5_32525-release.apk ](https://github.com/tiann/KernelSU/releases/download/v3.2.5/KernelSU_v3.2.5_32525-release.apk)   |
+| 5 | KernelSU | v3.3.0 | 2026-08-28T14:49:30Z | [ KernelSU_v3.3.0_32601-release.apk ](https://github.com/tiann/KernelSU/releases/download/v3.3.0/KernelSU_v3.3.0_32601-release.apk)   |
 | 6 | localsend | v1.18.2 | 2026-08-21T14:02:01Z | [ LocalSend-1.18.2-android-arm64v8.apk ](https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-android-arm64v8.apk)   |
-| 7 | ZygiskNext | v1.4.5 | 2026-08-05T04:54:20Z | [ Zygisk-Next-1.4.5-836-b13d58a-release.zip ](https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.4.5/Zygisk-Next-1.4.5-836-b13d58a-release.zip)   |
+| 7 | ZygiskNext | v1.5.0 | 2026-08-26T00:54:29Z | [ Zygisk-Next-1.5.0-843-5217106-release.zip ](https://github.com/Dr-TSNG/ZygiskNext/releases/download/v1.5.0/Zygisk-Next-1.5.0-843-5217106-release.zip)   |
 | 8 | LSPosed.github.io | shamiko-414 | 2025-06-18T11:37:10Z | [ Shamiko-v1.2.5-414-release.zip ](https://github.com/LSPosed/LSPosed.github.io/releases/download/shamiko-414/Shamiko-v1.2.5-414-release.zip)   |
 | 9 | PlayIntegrityFix | v4.7-inject-s | 2026-07-11T09:58:43Z | [ PlayIntegrityFix_v4.7-1-inject-s.zip ](https://github.com/KOWX712/PlayIntegrityFix/releases/download/v4.7-inject-s/PlayIntegrityFix_v4.7-1-inject-s.zip)  [ PlayIntegrityFix_v4.7-inject-s.zip ](https://github.com/KOWX712/PlayIntegrityFix/releases/download/v4.7-inject-s/PlayIntegrityFix_v4.7-inject-s.zip)   |
 | 10 | TrickyStore | 1.4.1 | 2025-11-02T09:56:37Z | [ Tricky-Store-v1.4.1-245-72b2e84-release.zip ](https://github.com/5ec1cff/TrickyStore/releases/download/1.4.1/Tricky-Store-v1.4.1-245-72b2e84-release.zip)   |
