@@ -5,9 +5,9 @@
 <!-- RELEASE_TABLE_START -->
 | 序号 | 项目 | 版本 | 更新 | 下载 |
 | --- | --- | --- | --- | --- |
-| 1 | Magisk | v30.7 | 2026-02-23T08:07:01Z | [ Magisk-v30.7.apk ](https://github.com/topjohnwu/Magisk/releases/download/v30.7/Magisk-v30.7.apk)   |
+| 1 | Magisk | v31.1 | 2026-10-25T02:03:45Z | [ Magisk-v31.1.apk ](https://github.com/topjohnwu/Magisk/releases/download/v31.1/Magisk-v31.1.apk)   |
 | 2 | KeyAttestation | v1.8.4 | 2025-01-16T15:15:30Z | [ KeyAttestation-v1.8.4.apk ](https://github.com/vvb2060/KeyAttestation/releases/download/v1.8.4/KeyAttestation-v1.8.4.apk)   |
-| 3 | SukiSU-Ultra | v4.2.1-r2 | 2026-10-24T10:52:37Z | [ SukiSU_v4.2.1-r2_41068-release.apk ](https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases/download/v4.2.1-r2/SukiSU_v4.2.1-r2_41068-release.apk)   |
+| 3 | SukiSU-Ultra | v4.3.0 | 2026-10-29T07:28:35Z | [ SukiSU_v4.3.0_41100-release.apk ](https://github.com/SukiSU-Ultra/SukiSU-Ultra/releases/download/v4.3.0/SukiSU_v4.3.0_41100-release.apk)   |
 | 4 | Shizuku | v13.6.0 | 2025-05-25T13:19:47Z | [ shizuku-v13.6.0.r1086.2650830c-release.apk ](https://github.com/RikkaApps/Shizuku/releases/download/v13.6.0/shizuku-v13.6.0.r1086.2650830c-release.apk)   |
 | 5 | KernelSU | v3.3.1 | 2026-10-12T22:52:06Z | [ KernelSU_v3.3.1_32680-release.apk ](https://github.com/tiann/KernelSU/releases/download/v3.3.1/KernelSU_v3.3.1_32680-release.apk)   |
 | 6 | localsend | v1.18.2 | 2026-08-21T14:02:01Z | [ LocalSend-1.18.2-android-arm64v8.apk ](https://github.com/localsend/localsend/releases/download/v1.18.2/LocalSend-1.18.2-android-arm64v8.apk)   |
